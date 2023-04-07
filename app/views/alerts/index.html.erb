@@ -1,0 +1,12 @@
+<% if @alerts.size > 0 %>
+  <% @alerts.each do |alert| %>
+    <section class="alerts-section">
+      <section class="alert-card">
+        <b>Type: </b> <%= alert.alert_type %><br>
+        <b>Tag: </b> <%= alert.tag %><br>
+        <b>Description: </b> <%= alert.description %><br>
+        <b>Origin: </b> <%= alert.origin %>
+      </section>
+    </section>
+  <% end %>
+<% end %>

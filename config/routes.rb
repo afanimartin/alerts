@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "api/v1/alerts#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_for :users
+
+  namespace :api do
+    namespace :v1 do
+      resources :alerts
+    end
+  end
+
+  post "/sign_in", to: "api/v1/sessions#create"
+  post "/sign_up", to: "api/v1/registrations#create"
 end
